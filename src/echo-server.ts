@@ -207,7 +207,7 @@ export class EchoServer {
     onSubscribe(socket: any): void {
         socket.on('subscribe', data => {
             this.channel.join(socket, data);
-            this.channel.leave(socket, data.channel, 'unsubscribed', data.auth);
+            
         });
     }
 
@@ -216,7 +216,7 @@ export class EchoServer {
      */
     onUnsubscribe(socket: any): void {
         socket.on('unsubscribe', data => {
-            this.channel.leave(socket, data.channel, 'unsubscribed');
+            this.channel.leave(socket, data.channel, 'unsubscribed', data.auth);
         });
     }
 
