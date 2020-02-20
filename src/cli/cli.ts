@@ -109,6 +109,13 @@ export class Cli {
                 modifier[path.shift()] = value;
             }
         }
+        
+         if (process.env.LARAVEL_ECHO_SERVER_AUTH_HOST ||
+            process.env.LARAVEL_ECHO_SERVER_HOST) {
+                options.hookHost = process.env.LARAVEL_ECHO_SERVER_AUTH_HOST ||
+                process.env.LARAVEL_ECHO_SERVER_HOST;
+        }
+
 
         return options;
     }
